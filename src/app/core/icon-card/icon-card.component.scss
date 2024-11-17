@@ -1,0 +1,22 @@
+
+.feature {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+    width: 375px;
+}
+
+.feature h4 {
+    margin: 0;
+}
+
+.feature i {
+    font-size: 55px;
+    color: #2e86fd;
+}
+
+.feature p {
+    color: #6f7880;
+    font-size: 18px;
+    font-weight: 600;
+}
