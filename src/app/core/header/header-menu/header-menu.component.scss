@@ -10,6 +10,17 @@
 }
 
 .menu li {
-    margin-right: 30px;
+    margin-right: 25px;
     font-weight: 600;
+
+    a {
+        color:#343f44;
+        text-decoration: none;
+        padding: 5px;
+    }
+
+    a.active {
+        color: white;
+        background-color: #fa593c;
+    }
 }

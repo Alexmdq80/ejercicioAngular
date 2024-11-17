@@ -15,5 +15,5 @@ import { RouterOutlet } from '@angular/router';
             LandingPageComponent]
 })
 export class AppComponent {
-  title = 'ejercicio';
+  // title = 'ejercicio';
 }

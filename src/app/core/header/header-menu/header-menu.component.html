@@ -1,7 +1,8 @@
 <nav class="menu">
     <ul *ngIf="menuItems">
         <li *ngFor="let menuItem of menuItems">
-            {{menuItem.text}}
+            <a [routerLink]="menuItem.route"
+                routerLinkActive="active">{{menuItem.text}}</a>
         </li>
     </ul>
 </nav>
