@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Feature } from '../model/feature.model';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,4 +27,12 @@ export class FeatureService {
 
   constructor() { }
 
+  getFeatures(): Observable<Feature[]> {
+    return new Observable((obs) => {
+      setTimeout(() => {
+        obs.next(this.features);
+      }
+      , 2000)
+    })
+  }
 }
