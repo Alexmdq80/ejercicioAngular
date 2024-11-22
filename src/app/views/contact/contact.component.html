@@ -4,33 +4,46 @@
             <label class="form-field-label" for="email">Email</label>
             <input #email="ngModel" type="email" id="email" name="email"
                 class="form-control"
-                [(ngModel)]="formModel.email" required>
+                [(ngModel)]="formModel.email" required email>
 
-            <div *ngIf="email.invalid &&
-                        (email.dirty || email.touched) && 
-                        email.errors" class="error">
-                <div *ngIf="email.errors['required']">
+            <div class="input-error"
+                *ngIf="email.invalid && (email.touched || email.dirty)">
+                <span *ngIf="email.hasError('required')">
                     Email is required.
-                </div>
-                <div *ngIf="email.errors['email']">
+                </span>
+                <span *ngIf="email.hasError('email')">
                     Invalid email format.
-                </div>
+                </span>
             </div>
         </div>
 
         <div class="form-field">
             <label class="form-field-label" for="subject">Asunto</label>
-            <input type="text" id="subject" name="subject" class="form-control"
+            <input #subject="ngModel" type="text" id="subject" name="subject"
+                class="form-control"
                 [(ngModel)]="formModel.subject" required>
+
+            <div class="input-error"
+                *ngIf="subject.invalid && (subject.touched || subject.dirty)">
+                <span *ngIf="subject.hasError('required')">
+                    Subject is required.
+                </span>
+            </div>
 
         </div>
 
         <div class="form-field">
             <label class="form-field-label" for="message">Mensaje</label>
-            <textarea type="text" id="message" name="message"
+            <textarea #message="ngModel" type="text" id="message" name="message"
                 class="form-control"
                 [(ngModel)]="formModel.message" required>
             </textarea>
+            <div class="input-error"
+                *ngIf="message.invalid && (message.touched || message.dirty)">
+                <span *ngIf="message.hasError('required')">
+                    Message is required.
+                </span>
+            </div>
         </div>
         <button [disabled]="contactForm.invalid" submit-button type="submit"
             class="form-button">Enviar</button>

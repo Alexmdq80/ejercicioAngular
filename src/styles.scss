@@ -9,12 +9,23 @@ body {
     flex-direction: column;
     text-align: left;
     gap: 5px;
+    .input-error {
+        color: red;
+    }
 }
 .form-field input, textarea {
     height: 50px;
     border: none;
     font-size: 16px;
     color: #a3a3a5; 
+
+    &.ng-invalid.ng-touched.ng-dirty{
+        border: 1px solid red;
+    }
+
+    &.ng-valid.ng-touched.ng-dirty{
+        border: 1px solid green;
+    }
 }
 
 .form-field-label {
@@ -22,6 +33,4 @@ body {
     font-weight: 600;    
 }
 
-.error {
-    color: red;
-}
+

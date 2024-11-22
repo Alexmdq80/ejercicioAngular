@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { ContactForm } from '../../core/model/contact-form.model';
 import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 import { SubmitButtonComponent } from '../../core/submit-button/submit-button.component';
 
 @Component({
@@ -11,7 +11,6 @@ import { SubmitButtonComponent } from '../../core/submit-button/submit-button.co
     CommonModule,
     FormsModule,
     SubmitButtonComponent,
-    ReactiveFormsModule
   ],
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss'
