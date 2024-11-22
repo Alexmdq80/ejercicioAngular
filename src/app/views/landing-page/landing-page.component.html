@@ -1,6 +1,11 @@
 <app-presentation></app-presentation>
+<section>
+    <button outline-button (click)="newFeature()" type="button">New
+        Feature</button>
+</section>
 <section class="features">
     <app-icon-card *ngFor="let feature of features"
+        [id]="feature.id"
         [icon]="feature.icon"
         [title]="feature.title"
         [description]="feature.description">

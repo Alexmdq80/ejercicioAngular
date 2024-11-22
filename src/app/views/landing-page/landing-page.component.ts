@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Feature } from '../../core/model/feature.model';
 import { FeatureService } from '../../core/services/feature.service';
 import { Subscription, map } from 'rxjs';
+import { OutlineButtonComponent } from '../../core/outline-button/outline-button.component';
 
 @Component({
   selector: 'app-landing-page',
@@ -13,6 +14,7 @@ import { Subscription, map } from 'rxjs';
       PresentationComponent, 
       IconCardComponent,
       CommonModule,
+      OutlineButtonComponent
   ],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.scss'
@@ -29,12 +31,7 @@ export class LandingPageComponent implements OnInit, OnDestroy {
   ngOnInit() {
     // this.features = this.featureService.features;
     // this.subscription.add(this.featureService.getFeatures().subscribe({
-    this.subscription.add(this.featureService.getFeatures().pipe(
-        map(res => { 
-         res[0].title = "Hard to use.";
-         return res;
-      })
-      ).subscribe({
+    this.subscription.add(this.featureService.getFeatures().subscribe({
         next: res => {
           console.log(res);
           this.features = res;
@@ -47,6 +44,18 @@ export class LandingPageComponent implements OnInit, OnDestroy {
         }       
     }));
   }
+
+  newFeature() {
+    this.featureService.postFeatures({
+      id: 4,
+      icon: 'home',
+      description: 'Cualquier descripción',
+      title: 'Feature Test'
+    } as Feature).subscribe(res => {
+      console.log(res);
+    });
+  }
+
 
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
