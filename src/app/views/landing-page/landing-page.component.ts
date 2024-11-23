@@ -4,7 +4,7 @@ import { IconCardComponent } from "../../core/icon-card/icon-card.component";
 import { CommonModule } from '@angular/common';
 import { Feature } from '../../core/model/feature.model';
 import { FeatureService } from '../../core/services/feature.service';
-import { Subscription, map } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { OutlineButtonComponent } from '../../core/outline-button/outline-button.component';
 
 @Component({

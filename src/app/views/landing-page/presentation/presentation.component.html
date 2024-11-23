@@ -5,10 +5,12 @@
         convert more
         visitors than a website-no coding required</span>
     <form class="suscribe-form ">
-        <input placeholder="Enter your email" />
+        <input placeholder="Enter your email" [formControl]="email" />
         <!-- <button type="submit">Suscribe</button> -->
-        <button type="button" submit-button>Suscribe</button>
+        <button type="button" submit-button
+            (click)="updateEmail()">Suscribe</button>
 
     </form>
+    <p class="secondary-p">{{email.value}}</p>
     <p class="secondary-p">Trusted by over 50,000+ customers</p>
 </section>

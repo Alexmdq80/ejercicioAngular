@@ -1,1 +1,38 @@
-<p>pricing works!</p>
+<section class="pricing-form">
+    <form [formGroup]="form_group">
+        <div class="form-field">
+            <label for="feature">Features</label>
+            <select id="feature" class="form-control" formControlName="feature">
+                <!-- <option [defaultSelected]>Feature</option> -->
+                <option *ngFor="let opcion of features"
+                    [value]="opcion.id">{{opcion.title}}</option>
+                <!-- USO OPCION.ID, AUNQUE SE PODRÍA USAR EL OBJETO DIRECTAMENTE     -->
+            </select>
+            <div class="input-error"
+                *ngIf="feature?.invalid && (feature?.touched ||
+                feature?.dirty)">
+                <span *ngIf="feature?.hasError('required')">
+                    Feature is required.
+                </span>
+            </div>
+
+        </div>
+
+        <div class="form-field">
+            <label for="count">Cantidad</label>
+            <input type="number" min="0" id="count" class="form-control"
+                required
+                formControlName="cantidad">
+            <div class="input-error"
+                *ngIf="cantidad?.invalid && (cantidad?.touched ||
+                cantidad?.dirty)">
+                <span *ngIf="cantidad?.hasError('required')">
+                    Cantidad is required.
+                </span>
+            </div>
+        </div>
+
+        <button [disabled]="form_group.invalid" typre="submit" submit-button
+            class="form-button" (click)="comprarFeature()">Solicitar</button>
+    </form>
+</section>
